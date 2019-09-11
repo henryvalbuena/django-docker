@@ -1,0 +1,7 @@
+# Set other project dependencies to be installed by python here
+Django>=2.0
+# database
+# psycopg2>=2.7
+# images
+# pillow>=6.0
+# 

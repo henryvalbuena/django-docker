@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  # if using database, set the service-name and image to be used from docker hub
+  # [service-name]:
+  #   image: [database-image-name]
+  #
+  # example:
+  # db:
+  #   image: postgres
+  web:
+    # for envirment variables
+    # env_file:
+    #   - .env
+    build: .
+    # The commands include the bare minimun for a Django project, such as migrations and static collection
+    command: bash -c 
+      "
+      python3 manage.py makemigrations &&
+      python3 manage.py migrate && 
+      yes yes | python3 manage.py collectstatic &&
+      python3 manage.py runserver 0.0.0.0:8000
+      "
+    # Change project_name for the actual name of the project
+    volumes:
+      - .:/www/project_name
+    ports:
+      - "8000:8000"
+    # If a database is being used, set the service name here
+    # depends_on:
+    #   - [service-name]
+    #
+    # example:
+    # depends_on:
+    #   - db
