@@ -5,11 +5,11 @@ https://docs.docker.com/compose/django/
 
 ## Build Project
 ```
-docker-compose run web django-admin startproject [project-name] .
+docker-compose run [project_name] django-admin startproject [project-name] .
 ```
 ## Build Apps
 ```
-docker-compose run web django-admin startapp [app_name]
+docker-compose run [project_name] django-admin startapp [app_name]
 ```
 
 ## Run compose

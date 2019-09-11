@@ -6,12 +6,20 @@ services:
   #   image: [database-image-name]
   #
   # example:
-  # db:
-  #   image: postgres
-  web:
+  postgres_db:
+    image: postgres
+    # Set the containers name if needed
+    container_name: postgres_db
+  # set the service name for django
+  # In this document, the project_name maches with the service name
+  # for Django framework
+  # [project_name]:
+  # example:
+  website_name:
+    container_name: django_web
     # for envirment variables
-    # env_file:
-    #   - .env
+    env_file:
+      - .env
     build: .
     # The commands include the bare minimun for a Django project, such as migrations and static collection
     command: bash -c 
@@ -31,5 +39,5 @@ services:
     #   - [service-name]
     #
     # example:
-    # depends_on:
-    #   - db
+    depends_on:
+      - db
