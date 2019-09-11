@@ -3,26 +3,30 @@
 ## Setup Reference
 https://docs.docker.com/compose/django/
 
-## Build Project
+## Commands to Build and Run
+
+> Notice that project_name matches the service name used in *docker-compose.yaml*
+
+### Build Project
 ```
 docker-compose run [project_name] django-admin startproject [project-name] .
 ```
-## Build Apps
+### Build Apps
 ```
 docker-compose run [project_name] django-admin startapp [app_name]
 ```
 
-## Run compose
+### Run compose
 ```
 docker-compose up
 ```
 
-## Stop compose
+### Stop compose
 ```
 docker-compose down
 ```
 
-## Build before start
+### Build before start
 ```
 docker-compose up --build
 ```

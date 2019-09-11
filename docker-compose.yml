@@ -6,22 +6,23 @@ services:
   #   image: [database-image-name]
   #
   # example:
-  postgres_db:
-    image: postgres
-    # Set the containers name if needed
-    container_name: postgres_db
+  # postgres_db:
+  #   image: postgres
+  #   container_name: postgres_container_id
   # set the service name for django
   # In this document, the project_name maches with the service name
   # for Django framework
   # [project_name]:
   # example:
   website_name:
-    container_name: django_web
+    container_name: django_web_id
     # for envirment variables
     env_file:
       - .env
     build: .
     # The commands include the bare minimun for a Django project, such as migrations and static collection
+    #
+    # NOTE: you have to setup the STATIC_ROOT in the project settings, otherwise the service won't run
     command: bash -c 
       "
       python3 manage.py makemigrations &&
@@ -39,5 +40,5 @@ services:
     #   - [service-name]
     #
     # example:
-    depends_on:
-      - db
+    # depends_on:
+    #   - postgres_db

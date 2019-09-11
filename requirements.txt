@@ -1,4 +1,4 @@
-# Set other project dependencies to be installed by python here
+# Set other project dependencies to be installed by python here, choose appropiate versions
 Django>=2.0
 # database
 psycopg2>=2.7
